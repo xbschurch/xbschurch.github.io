@@ -6,7 +6,7 @@
 	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 </head>
 <body>
-	<div id="vue_det">
+	<div id="app">
 		<h1>site : {{site}}</h1>
 		<h1>url : {{url}}</h1>
 		<h1>{{details()}}</h1>
@@ -27,7 +27,7 @@
 		}
 		
 		var vm = new Vue({
-			el: '#vue_det',
+			el: '#app',
 			data: {
 				site: "教程",
 				url: "gospel",
