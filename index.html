@@ -14,7 +14,18 @@
       <button @click="testBtn">ClikeMe</button>
     </p>
 	</div>
+	<div id='myDiv'></div>
 	<script type="text/javascript">
+		var xmlhttp = new XMLHttpRequest();
+		var url = 'http://api.nnzhp.cn/api/user/stu_info';
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+			}
+		}
+		
 		var vm = new Vue({
 			el: '#vue_det',
 			data: {
@@ -27,7 +38,8 @@
 					return  this.site + " - 学的不仅是技术，更是梦想！";
 				},
         testBtn: function() {
-          this.site = 'this is a gospel website.';
+          xmlhttp.open('GET', url, true);
+		xmlhttp.send();
         }
 			}
 		})
